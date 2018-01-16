@@ -14,4 +14,4 @@
 .glide/
 
 # DrRacket temp files
-#*#.*
+/Racket/#*
