@@ -14,4 +14,9 @@
 .glide/
 
 # DrRacket temp files
-/Racket/#*
+*~
+\#*
+.#*
+.DS_Store
+*.bak
+TAGS
