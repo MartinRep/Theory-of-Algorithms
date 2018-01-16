@@ -1,0 +1,34 @@
+#lang slideshow
+(require slideshow/code)
+
+(define (sCircle r)
+  (circle r))
+(define (sRect x) (rectangle x x))
+
+(define (fourByFour elem)
+  (define two-elem (hc-append elem elem))
+  (vc-append two-elem two-elem))
+
+(define-syntax printAll
+  (syntax-rules ()
+    [(printAll expr)
+     (hc-append 10
+                expr
+                (code expr))]))
+
+(require racket/class
+         racket/gui/base)
+(define f (new frame% [label "Hello Racket GUI"]
+                      [width 300]
+                      [height 300]
+                      [alignment '(center center)]))
+
+(define (add-drawing p)
+  (let ([drawer (make-pict-drawer p)])
+    (new canvas% [parent f]
+                 [style '(border)]
+                 [paint-callback (lambda (self dc)
+                                   (drawer dc 0 0))])))
+
+;; (add-drawing (printAll(sCircle 20)))
+;; (send f show #t)
