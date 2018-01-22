@@ -60,4 +60,5 @@
 ; Adapted from https://docs.racket-lang.org/reference/pairs.html
 
 (define (prime? n)
-  (andmap (lambda (div) (if (= (remainder n div) 0) #f #t) ) (stream->list (in-range 2 (+ (/ n 2) 1)))))
+  (andmap (lambda (div) (if (= (remainder n div) 0) #f #t) )
+          (stream->list (in-range 2 (+ (/ n 2) 1)))))
