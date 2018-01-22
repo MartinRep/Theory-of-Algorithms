@@ -32,3 +32,32 @@
 
 ;; (add-drawing (printAll(sCircle 20)))
 ;; (send f show #t)
+
+
+;; Adapted from https://docs.racket-lang.org/reference/generic-numbers.html
+;; Adapted from https://docs.racket-lang.org/reference/let.html
+
+(define (decide-prime number)
+    (for ([i (in-range 2 (/ number 2))])
+      (let ([result (if (= (remainder number i) 0)
+          1 2)]) result)
+      ))
+
+(define (ifTest m n)
+  (if(= (remainder m n) 0)
+     (let ([m (+ m n)])
+       (let ([ sum (string-append "Sum: " (number->string m))])
+       (printf sum))) n))
+
+(define (forTest number)
+  (for ([i (in-range 2 (/ number 2))])
+    (printf "Number: ~a\n" i)))
+
+(define atom?
+(lambda (x)
+(and (not (pair? x)) (not (null? x))))) 
+
+; Adapted from https://docs.racket-lang.org/reference/pairs.html
+
+(define (prime? n)
+  (andmap (lambda (div) (if (= (remainder n div) 0) #f #t) ) (stream->list (in-range 2 (+ (/ n 2) 1)))))
