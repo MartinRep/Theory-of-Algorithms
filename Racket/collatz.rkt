@@ -11,8 +11,16 @@
 ; Uses collatz-helper to determine next sequence number and assain it as n
 ; If n = 1 creates a list
 ; Else calls itself with number n and adds the result to created list
-(define (collatz-list m)
+(define (collatz-list-old m)
   (let ([n (collatz-helper m)])
         (if (= n 1)
             (list m 1)
             (cons m (collatz-list n )))))
+
+; Simplified version
+(define (collatz-list m)
+  (if (= m 2)
+      (list m 1)
+      (cons m (collatz-list (if (= (remainder m 2) 0)
+                                (/ m 2)
+                                (+ (* m 3) 1))))))
