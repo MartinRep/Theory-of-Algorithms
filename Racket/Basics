@@ -8,7 +8,6 @@
   (andmap (lambda (div) (if (= (remainder n div) 0) #f #t))
           (stream->list (in-range 2 (+ (/ n 2) 1)))))
 
-<<<<<<< HEAD
 
 ; Helper function to calculate if the number is prime using recursion.
 ; Inputs m:Number to check n:Number to divide m to check if there is a remainer.
@@ -22,18 +21,6 @@
        )))
 
 ; Recursive version with helper method. Using method prime-helper to calculate prime for each posible divisions.
-; Provide smallest divider as second argument
+; Provide smallest divider as second argument 2
 (define (isprime? m)
       (prime-helper m 2))
-=======
-(define (prime-helper m n)
-  (if (< n 2) #t
-   (if (= (remainder m n) 0)
-       #f
-       (prime-helper m (- n 1))
-       )))
-
-(define (isprime? m)
-      (prime-helper m (round (/ m 2)))
-  )
->>>>>>> 425f0debc1a049f4ce0413b5aa868eaebbc0e6a3
