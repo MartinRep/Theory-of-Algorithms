@@ -3,7 +3,18 @@
 
 ; andmap return first #f from the lambda function.
 ; lamda return #f if remainder of n and div is 0. n is not prime number.
-; lst return list of numbers from 2 until n/2. +1 had to be added for the case of '4'. List of dividers to feed the lambda function.
+; List of dividers to feed the lambda function. Numbers from 2 until n/2. +1 had to be added for the case of '4'.
 (define (prime? n)
   (andmap (lambda (div) (if (= (remainder n div) 0) #f #t))
           (stream->list (in-range 2 (+ (/ n 2) 1)))))
+
+(define (prime-helper m n)
+  (if (< n 2) #t
+   (if (= (remainder m n) 0)
+       #f
+       (prime-helper m (- n 1))
+       )))
+
+(define (isprime? m)
+      (prime-helper m (round (/ m 2)))
+  )
