@@ -15,7 +15,7 @@
   (let ([n (collatz-helper m)])
         (if (= n 1)
             (list m 1)
-            (cons m (collatz-list n )))))
+            (cons m (collatz-list-old n )))))
 
 ; Simplified version
 (define (collatz-list m)
