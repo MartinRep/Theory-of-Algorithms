@@ -19,8 +19,8 @@
 
 ; Simplified version
 (define (collatz-list m)
-  (if (= m 2)
-      (list m 1)
+  (if (= m 1)
+      (list m)
       (cons m (collatz-list (if (= (remainder m 2) 0)
                                 (/ m 2)
                                 (+ (* m 3) 1))))))
