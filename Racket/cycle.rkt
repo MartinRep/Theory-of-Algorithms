@@ -25,3 +25,26 @@
 ; Example: m:(1 2 3 4 5) returns (2 3 4 5 6)
 (define (lcycle m)
   (lcycleH (cdr m) (car m)))
+
+; First helping function for rcycle.
+; Returns last element of the list
+(define (lastE m)
+  (if(pair? (cdr m))
+     (lastE (cdr m))
+     (car m)))
+
+; Helping function for rcycle.
+; Returns list m without last Element of the list.
+(define (list-no-last m)
+(if(pair? (cdr (cdr m)))
+   (cons (car m)
+         (list-no-last (cdr m)))
+   (list (car m))))
+
+; rcycle function. Shifts the list cyclically, one place to the right.
+; Example: (rcycle (list 1 2 3 4 5)) returns: '(5 1 2 3 4)
+(define (rcycle m)
+  (if (pair? m) (cons (lastE m) (list-no-last m))
+      m))
+
+
