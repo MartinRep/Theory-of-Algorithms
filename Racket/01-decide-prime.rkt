@@ -40,7 +40,7 @@
 ; Check for positive number bigger than 1 and provide smallest divider for prime-helper.
 ; Example: (define (isprime? 7)
 ; Returns: #t
-(define (prime? m)
+(define (decide-prime m)
   (if (> m 1)
       (prime-helper m 2)
       #f)) ; (0 1) are not prime numbers. 
