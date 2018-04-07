@@ -5,6 +5,8 @@
 ; and element of list Z at the position where list X has NOT 1
 ; Uses simple condition and recursion. Checks every element of list X and call recursively itself with
 ; the rest of the lists elements
+; > (chse '(0 0 0 0 1 1 1 1) '(0 0 1 1 0 0 1 1) '(0 1 0 1 0 1 0 1))
+; '(0 1 0 1 0 0 1 1)
 
 (define (chse X Y Z)
   (if (null? X) null
