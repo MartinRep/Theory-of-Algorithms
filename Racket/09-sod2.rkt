@@ -5,6 +5,8 @@
 ; Checks remainder of summary od element on position is equal 0. Even number of 1s on position.
 ; Adds 0 and call itself with remaining elements of the lists.
 ; Otherwise number of 1s is odd, adds 1 and call itself with remaining elements of the lists.
+; > (sod2 (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
+; '(0 1 1 0 1 0 0 1)
 
 (define (sod2 X Y Z)
   (if (null? X)
